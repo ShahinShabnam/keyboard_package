@@ -1,0 +1,28 @@
+{
+  "name": "keyboardpackagee",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "y"
+  },
+  "author": {
+    "name": "y",
+    "email": "shabnam.shahin@rancelab.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "y/issues"
+  },
+  "main": "keyboardpackagee.umd.js",
+  "module": "keyboardpackagee.js",
+  "jsnext:main": "keyboardpackagee.js",
+  "typings": "keyboardpackagee.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
