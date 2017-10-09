@@ -5,7 +5,7 @@ export declare class CustomKeyboardComponent implements OnInit {
     inputstr: string;
     caretPos: number;
     inputTextArea: any;
-    inputType: any;
+    inputType: string;
     constructor();
     ngOnInit(): void;
     keyPress(event: any): void;
