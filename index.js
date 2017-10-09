@@ -8,6 +8,7 @@ var CustomKeyboardComponent = (function () {
         this.keys = ["Esc", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "bksp", "7", "8", "9", "Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "Enter", "4", "5", "6", "<--", "z", "x", "c", "v", "b", "n", "m", "-", "-->", "1", "2", "3", "Spacebar", "0", "Enter"];
         this.inputstr = "";
         this.caretPos = 0;
+        this.value = '';
     }
     /**
      * @return {?}
@@ -17,6 +18,7 @@ var CustomKeyboardComponent = (function () {
         this.CapsLock = false;
         this.keys = ["Esc", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "bksp", "7", "8", "9", "Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "Enter", "4", "5", "6", "<--", "z", "x", "c", "v", "b", "n", "m", "-", "-->", "1", "2", "3", "Spacebar", "0", "Enter"];
         this.caretPos = 0;
+        // this.inputDefine(this.inputType);
     };
     /**
      * @param {?} event
@@ -144,10 +146,12 @@ var CustomKeyboardComponent = (function () {
     };
     return CustomKeyboardComponent;
 }());
+// inputDefine(inputType){
+// }
 CustomKeyboardComponent.decorators = [
     { type: Component, args: [{
                 selector: 'custom-keyboard-component',
-                template: "\n  <div class=\"keyboard\">\n  <input id=\"input\" #inputTextArea (click)=\"getCaretPos(inputTextArea)\" (keyup)=\"getCaretPos(inputTextArea)\" [ngModel]=\"inputstr\" style=\"width:90%;margin-left: 17px;\" />\n  <br>\n  <br>\n  <div class=\"button-group\">\n    <button *ngFor=\"let key of keys\" class=\"button\" (click)=\"click(key,inputTextArea)\">\n      {{key}}\n    </button>\n  </div>\n</div>\n",
+                template: "\n  <div class=\"keyboard\">\n  <input id=\"input\" #inputTextArea [(type)]=\"inputType\" (click)=\"getCaretPos(inputTextArea)\"  (keyup)=\"getCaretPos(inputTextArea)\" [ngModel]=\"inputstr\" style=\"width:90%;margin-left: 17px;\" />\n  <br>\n  <br>\n  <div class=\"button-group\">\n    <button *ngFor=\"let key of keys\" class=\"button\" (click)=\"click(key,inputTextArea)\">\n      {{key}}\n    </button>\n  </div>\n</div>\n",
                 styles: [".button-group{ height: 100px; width: calc(100% - 100px); float: left; min-width: 990px; } .button{ width:calc((100%)/15); height: 50%; padding: 0px; background-color: black; color: white; } .keyboard{ height: 230px; width: 100%; float: left; background-color: aqua; padding-top: 18px; } "],
                 host: { '(window:keyup)': 'keyPress($event)' }
             },] },
@@ -222,22 +226,19 @@ CustomKeyboardService.ctorParameters = function () { return []; };
 var CustomKeyboardModule = (function () {
     function CustomKeyboardModule() {
     }
-    /**
-     * @return {?}
-     */
-    CustomKeyboardModule.forRoot = function () {
-        return {
-            ngModule: CustomKeyboardModule,
-            providers: [CustomKeyboardService]
-        };
-    };
     return CustomKeyboardModule;
 }());
+// static forRoot(): ModuleWithProviders {
+//   return {
+//     ngModule: CustomKeyboardModule,
+//     providers: [CustomKeyboardService]
+//   };
+// }
 CustomKeyboardModule.decorators = [
     { type: NgModule, args: [{
                 imports: [
                     CommonModule,
-                    FormsModule
+                    FormsModule,
                 ],
                 declarations: [
                     CustomKeyboardComponent,
