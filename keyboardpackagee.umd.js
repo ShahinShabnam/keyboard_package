@@ -215,6 +215,7 @@ CustomKeyboardPipe.ctorParameters = function () { return []; };
 
 var CustomKeyboardService = (function () {
     function CustomKeyboardService() {
+        // this.customKeyboardComponentInput=this.customKeyboardComponent;
     }
     return CustomKeyboardService;
 }());
@@ -252,7 +253,8 @@ CustomKeyboardModule.decorators = [
                     CustomKeyboardComponent,
                     CustomKeyboardDirective,
                     CustomKeyboardPipe
-                ]
+                ],
+                providers: [CustomKeyboardService]
             },] },
 ];
 /**
